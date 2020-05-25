@@ -25,7 +25,7 @@
     "lint:hosting": "npm --prefix ./hosting run lint"
   },
   "dependencies": {
-    "@firebase/testing": "^0.15.0",
+    "@firebase/testing": "^0.19.5",
     "eslint": "^6.6.0",
     "jest": "^24.9.0",
     "npm-run-all": "^4.1.5"

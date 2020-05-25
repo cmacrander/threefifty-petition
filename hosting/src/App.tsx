@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { theme } from 'theme';
-import DevNavigation from 'scenes/DevNavigation';
+
 import AppContainer from 'components/AppContainer';
+import DevNavigation from 'scenes/DevNavigation';
 import Home from 'scenes/Home';
+import UploadSheets from 'scenes/UploadSheets';
+import { theme } from 'theme';
 
 const App: React.FC = () => (
   <AppContainer>
@@ -12,8 +14,11 @@ const App: React.FC = () => (
       <Router>
         <DevNavigation />
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/upload-sheets">
+            <UploadSheets />
           </Route>
         </Switch>
       </Router>
