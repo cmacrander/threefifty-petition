@@ -5,7 +5,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import AppContainer from 'components/AppContainer';
 import DevNavigation from 'scenes/DevNavigation';
 import Home from 'scenes/Home';
-import UploadSheets from 'scenes/UploadSheets';
+import ImportSheets from 'scenes/ImportSheets';
 import { theme } from 'theme';
 
 const App: React.FC = () => (
@@ -17,8 +17,8 @@ const App: React.FC = () => (
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/upload-sheets">
-            <UploadSheets />
+          <Route exact path="/import-sheets">
+            <ImportSheets />
           </Route>
         </Switch>
       </Router>

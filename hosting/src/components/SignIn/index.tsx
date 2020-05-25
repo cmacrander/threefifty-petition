@@ -21,7 +21,7 @@ const firebaseEmailPasswordSubmit = async (
     await firebase.auth().signInWithEmailAndPassword(email, password);
     setSubmitting(false);
     setStatus(null);
-    history.push('/upload-sheets');
+    history.push('/import-sheets');
   } catch (error) {
     // We treat all codes the same, but the possible values are:
     // * 'auth/invalid-email'

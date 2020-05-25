@@ -7,22 +7,6 @@ import isTesting from 'utils/isTesting';
 export const RESPONSES_COLLECTION = 'responses';
 export const ANSWERS_COLLECTION = 'answers';
 
-const firebaseConfig = {
-  apiKey: 'AIzaSyCEUe4cPuUcHXhrVLMqJVZZfGtE_VUBJko',
-  authDomain: 'threefifty-petition.firebaseapp.com',
-  databaseURL: 'https://threefifty-petition.firebaseio.com',
-  projectId: 'threefifty-petition',
-  storageBucket: 'threefifty-petition.appspot.com',
-  messagingSenderId: '1051000028249',
-  appId: '1:1051000028249:web:2593d692fb9e65e88a4548',
-};
-
-firebase.initializeApp(firebaseConfig);
-
-// Initialize Performance Monitoring
-// https://firebase.google.com/docs/perf-mon/get-started-web
-firebase.performance();
-
 export const firestore = firebase.firestore();
 
 if (isLocalhost()) {
