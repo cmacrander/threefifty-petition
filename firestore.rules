@@ -16,8 +16,8 @@ service cloud.firestore {
       allow write: if false;
     }
 
-    // Open demo collection for read/write
-    match /demo/{document=**} {
+    // Open sheets collection for read/write
+    match /sheets/{document=**} {
       allow read, write;
     }
 
