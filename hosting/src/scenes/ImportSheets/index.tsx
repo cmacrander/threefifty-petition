@@ -1,23 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { handleSignOutClick } from 'components/SignOut';
+
 import * as dropbox from 'services/dropbox';
 
-const handleClick = async () => {
-	const result = await dropbox.ls();
-	console.log('result', result);
-};
-
 const ImportSheets: React.FC = () => {
-	const history = useHistory();
-	return (
-		<>
-			<button onClick={() => handleSignOutClick(history)}>Sign Out</button>
-			<p>Import Sheets</p>
-			<button onClick={handleClick}>dropbox</button>
-		</>
-	);
+  const history = useHistory();
+
+  const [files, setFiles] = useState<Array<dropbox.File> | undefined>();
+  useEffect(() => {
+    async function getFiles() {
+      const files = await dropbox.lsFiles();
+      setFiles(files);
+    }
+    getFiles();
+  }, []);
+
+  const sheets: any[] = [];
+
+  return (
+    <>
+      <button onClick={() => handleSignOutClick(history)}>Sign Out</button>
+      <p>Import Sheets</p>
+      <ul>{files && files.map(file => <li key={file.id}>{file.name}</li>)}</ul>
+      <p>Already Imported</p>
+      <ul>
+        {sheets.map(sheet => (
+          <li key={sheet.id}>{sheet.name}</li>
+        ))}
+      </ul>
+    </>
+  );
 };
 
 export default ImportSheets;
